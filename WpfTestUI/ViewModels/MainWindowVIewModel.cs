@@ -11,17 +11,19 @@ namespace WpfTestUI.ViewModels
 {
     using DemoClient;
     using MVVMCore.Helpers;
+    using System.Collections.ObjectModel;
     using WpfTestUI.RestApiClient.API.Models;
 
-    class MainWindowVIewModel:BaseViewModel
+    class MainWindowVIewModel : BaseViewModel
     {
-       public List<Person>Persons { get; set; }
+        public ObservableCollection<Person> Persons {get;set;}
         
-
         public MainWindowVIewModel()
         {
             var _client = new ApiClient("https://localhost:44344", new System.Net.Http.HttpClient());
-            _client.PersonContactGetAsync();
+            var collection = _client.PersonGetAsync().Result.ToList();
+            Persons = new ObservableCollection<Person>(collection);
+
             //GetAllCountryObjectsService.GetAllCountries();
             //GetAllCountryObjectsService.GetAllPersons();
         }
