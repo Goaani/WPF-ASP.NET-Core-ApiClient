@@ -74,11 +74,12 @@
         </ToolBar>
         <DataGrid Name="DtGrContacts" Margin="5" ItemsSource="{Binding PersonToWorkWith.PersonContact}" AutoGenerateColumns="False" CanUserDeleteRows="False"
                   CanUserAddRows="False" IsReadOnly="True">
-            <DataGridTextColumn Binding="{Binding ContactTypeId, Converter={StaticResource ContactTypeIdToContactName}}"/>
+            <DataGridTextColumn Binding="{Binding ContactTypeId}"/>
             <DataGridTextColumn Binding="{Binding Txt}"/>
         </DataGrid>
         <DockPanel >
-            <Button HorizontalAlignment="Right" Margin="10" FontSize="16" FontWeight="DemiBold"  Content="Save Changes" Command="{Binding SaveChanges}"/>
+            <Button HorizontalAlignment="Right" Style="{StaticResource SubButton}" Margin="10"  FontSize="16" FontWeight="DemiBold" 
+                    Content="Save Changes" Command="{Binding SaveChanges}"/>
         </DockPanel>
     </StackPanel>
 </Window>

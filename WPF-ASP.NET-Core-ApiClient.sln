@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoClient", "DemoClient\DemoClient.csproj", "{A51098A8-4554-44D3-92B4-21A72AD95E61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoClient", "DemoClient\DemoClient.csproj", "{A51098A8-4554-44D3-92B4-21A72AD95E61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUI", "ClientUI\ClientUI.csproj", "{44CEBF5B-594A-4A0B-81EC-32F548B9E7D6}"
 EndProject

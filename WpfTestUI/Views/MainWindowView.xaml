@@ -15,7 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <controls1:NavigationBar Grid.Row="0"/>
-        <DataGrid Grid.Row="1" 
+        <DataGrid Grid.Row="1"  ItemsSource="{Binding Person}" 
                   AutoGenerateColumns="False" AlternatingRowBackground="LightGray"
                   CanUserDeleteRows="False" CanUserAddRows="False" IsReadOnly="True">            <!--ItemsSource=""-->
             <DataGrid.Columns>

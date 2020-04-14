@@ -17,7 +17,7 @@
     <TextBox Margin="7 0 7 5" Text="{Binding Txt}"></TextBox>
     <DockPanel VerticalAlignment="Bottom" 
                HorizontalAlignment="Right">
-       <Button Margin="10" FontSize="16" 
+       <Button Margin="10" FontSize="16" Style="{StaticResource SubButton}"
                Content="Add Contact" Command="{Binding SaveChanges}"/>
     </DockPanel>
     </StackPanel>

@@ -5,11 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="NSwag.CodeGeneration.CSharp" Version="13.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Rest Api Client\" />
   </ItemGroup>
 
 </Project>

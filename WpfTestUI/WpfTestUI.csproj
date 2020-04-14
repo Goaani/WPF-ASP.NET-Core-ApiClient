@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MVVMCore">
+      <HintPath>..\..\..\MVVMCore\MVVMCore\MVVMCore.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -58,11 +61,15 @@
     <Compile Include="Controls\NavigationBar.xaml.cs">
       <DependentUpon>NavigationBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="HttpService\ApiHttpService.cs" />
+    <Compile Include="RestApiClient\API\IGetAllObjectsService.cs" />
+    <Compile Include="RestApiClient\API\Models\APICountry.cs" />
+    <Compile Include="RestApiClient\API\Models\GetAllCountryObjectsService.cs" />
+    <Compile Include="RestApiClient\Models\Country.cs" />
+    <Compile Include="RestApiClient\Models\Person.cs" />
     <Compile Include="ViewModels\MainWindowVIewModel.cs" />
     <Compile Include="ViewModels\NewContactWindowViewModel.cs" />
     <Compile Include="ViewModels\NewEditClientWindowViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
     </Compile>
@@ -76,18 +83,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Styles\ButtonSubmit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,9 +140,7 @@
       <Name>DemoClient</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RestApiClient\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\cross.png" />
   </ItemGroup>
@@ -148,6 +149,17 @@
     <Resource Include="Images\Save.png" />
     <Resource Include="Images\view_edit.png" />
     <Resource Include="Images\view_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Serialization.Json">
+      <Version>4.3.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

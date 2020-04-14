@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DemoClient
 {
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class Client
+    public partial class ApiClient
     {
+        public static List<Person> Persons { get; set; }
+        public static List<Country> Countries { get; set; }
+        public static List<Greeting> Greetings { get; set; }
+        public static List<PersonContact> PersonContacts { get; set; }
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public ApiClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
@@ -40,15 +46,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Country> GetAsync(string code)
+        public System.Threading.Tasks.Task<Country> CountryGetAsync(string code)
         {
-            return GetAsync(code, System.Threading.CancellationToken.None);
+            return CountryGetAsync(code, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Country> GetAsync(string code, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Country> CountryGetAsync(string code, System.Threading.CancellationToken cancellationToken)
         {
             if (code == null)
                 throw new System.ArgumentNullException("code");
@@ -111,15 +117,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> DeleteAsync(string code)
+        public System.Threading.Tasks.Task<bool> CountryDeleteAsync(string code)
         {
-            return DeleteAsync(code, System.Threading.CancellationToken.None);
+            return CountryDeleteAsync(code, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> DeleteAsync(string code, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> CountryDeleteAsync(string code, System.Threading.CancellationToken cancellationToken)
         {
             if (code == null)
                 throw new System.ArgumentNullException("code");
@@ -182,15 +188,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GetAllAllAsync()
+        public System.Threading.Tasks.Task<List<Country>> CountryGetAsync()
         {
-            return GetAllAllAsync(System.Threading.CancellationToken.None);
+            return CountryGetAsync();
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GetAllAllAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> CountryGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Country");
@@ -249,15 +255,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Country> UpdateAsync(Country country)
+        public System.Threading.Tasks.Task<Country> CountryPutAsync(Country country)
         {
-            return UpdateAsync(country, System.Threading.CancellationToken.None);
+            return CountryPutAsync(country, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Country> UpdateAsync(Country country, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Country> CountryPutAsync(Country country, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Country");
@@ -319,15 +325,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Country> AddAsync(Country country)
+        public System.Threading.Tasks.Task<Country> CountryPostAsync(Country country)
         {
-            return AddAsync(country, System.Threading.CancellationToken.None);
+            return CountryPostAsync(country, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Country> AddAsync(Country country, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Country> CountryPostAsync(Country country, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Country");
@@ -389,15 +395,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Greeting> Get2Async(int id)
+        public System.Threading.Tasks.Task<Greeting> GreetingGetAsync(int id)
         {
-            return Get2Async(id, System.Threading.CancellationToken.None);
+            return GreetingGetAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Greeting> Get2Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Greeting> GreetingGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -460,15 +466,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> Delete2Async(int id)
+        public System.Threading.Tasks.Task<bool> GreetingDeleteAsync(int id)
         {
-            return Delete2Async(id, System.Threading.CancellationToken.None);
+            return GreetingDeleteAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> Delete2Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> GreetingDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -531,15 +537,16 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Greeting>> GetAllAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GreetingGetAsync()
         {
-            return GetAllAsync(System.Threading.CancellationToken.None);
+            //DemoClient.Greeting = await response.Content.ReadAsAsync<ObservableCollection<Greeting>>();
+            return GreetingGetAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Greeting>> GetAllAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GreetingGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Greeting");
@@ -572,7 +579,7 @@ namespace DemoClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Greeting>>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Country>>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -582,7 +589,7 @@ namespace DemoClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(System.Collections.Generic.ICollection<Greeting>);
+                        return default(System.Collections.Generic.ICollection<Country>);
                     }
                     finally
                     {
@@ -598,15 +605,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Greeting> Update2Async(Greeting greeting)
+        public System.Threading.Tasks.Task<Country> GreetingPutAsync(Country greeting)
         {
-            return Update2Async(greeting, System.Threading.CancellationToken.None);
+            return GreetingPutAsync(greeting, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Greeting> Update2Async(Greeting greeting, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Country> GreetingPutAsync(Country greeting, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Greeting");
@@ -642,7 +649,7 @@ namespace DemoClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Greeting>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Country>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -652,7 +659,7 @@ namespace DemoClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(Greeting);
+                        return default(Country);
                     }
                     finally
                     {
@@ -668,15 +675,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Greeting> Add2Async(Greeting greeting)
+        public System.Threading.Tasks.Task<Country> GreetingPostAsync(Country greeting)
         {
-            return Add2Async(greeting, System.Threading.CancellationToken.None);
+            return GreetingPostAsync(greeting, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Greeting> Add2Async(Greeting greeting, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Country> GreetingPostAsync(Country greeting, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Greeting");
@@ -712,7 +719,7 @@ namespace DemoClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Greeting>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<Country>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -722,7 +729,7 @@ namespace DemoClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(Greeting);
+                        return default(Country);
                     }
                     finally
                     {
@@ -738,15 +745,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Person> Get3Async(int id)
+        public System.Threading.Tasks.Task<Person> PersonGetAsync(int id)
         {
-            return Get3Async(id, System.Threading.CancellationToken.None);
+            return PersonGetAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Person> Get3Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Person> PersonGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -809,15 +816,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> Delete3Async(int id)
+        public System.Threading.Tasks.Task<bool> PersonDeleteAsync(int id)
         {
-            return Delete3Async(id, System.Threading.CancellationToken.None);
+            return PersonDeleteAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> Delete3Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> PersonDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -880,15 +887,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Person>> GetAll2Async()
+        public System.Threading.Tasks.Task<List<Person>> PersonGetAsync()
         {
-            return GetAll2Async(System.Threading.CancellationToken.None);
+            return PersonGetAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Person>> GetAll2Async(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<List<Person>> PersonGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Person");
@@ -921,7 +928,7 @@ namespace DemoClient
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200")
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Person>>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<List<Person>>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -931,7 +938,7 @@ namespace DemoClient
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
 
-                        return default(System.Collections.Generic.ICollection<Person>);
+                        return default(List<Person>);
                     }
                     finally
                     {
@@ -947,15 +954,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Person> Update3Async(Person person)
+        public System.Threading.Tasks.Task<Person> PersonPutAsync(Person person)
         {
-            return Update3Async(person, System.Threading.CancellationToken.None);
+            return PersonPutAsync(person, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Person> Update3Async(Person person, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Person> PersonPutAsync(Person person, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Person");
@@ -1017,15 +1024,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Person> Add3Async(Person person)
+        public System.Threading.Tasks.Task<Person> PersonPostAsync(Person person)
         {
-            return Add3Async(person, System.Threading.CancellationToken.None);
+            return PersonPostAsync(person, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Person> Add3Async(Person person, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Person> PersonPostAsync(Person person, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Person");
@@ -1087,15 +1094,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<PersonContact> Get4Async(int id)
+        public System.Threading.Tasks.Task<PersonContact> PersonContactGetAsync(int id)
         {
-            return Get4Async(id, System.Threading.CancellationToken.None);
+            return PersonContactGetAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<PersonContact> Get4Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<PersonContact> PersonContactGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1158,15 +1165,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<bool> Delete4Async(int id)
+        public System.Threading.Tasks.Task<bool> PersonContactDeleteAsync(int id)
         {
-            return Delete4Async(id, System.Threading.CancellationToken.None);
+            return PersonContactDeleteAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<bool> Delete4Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> PersonContactDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1229,15 +1236,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PersonContact>> GetAll3Async()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PersonContact>> PersonContactGetAsync()
         {
-            return GetAll3Async(System.Threading.CancellationToken.None);
+            return PersonContactGetAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PersonContact>> GetAll3Async(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PersonContact>> PersonContactGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/PersonContact");
@@ -1296,15 +1303,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<PersonContact> Update4Async(PersonContact personContact)
+        public System.Threading.Tasks.Task<PersonContact> PersonContactPutAsync(PersonContact personContact)
         {
-            return Update4Async(personContact, System.Threading.CancellationToken.None);
+            return PersonContactPutAsync(personContact, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<PersonContact> Update4Async(PersonContact personContact, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<PersonContact> PersonContactPutAsync(PersonContact personContact, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/PersonContact");
@@ -1366,15 +1373,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<PersonContact> Add4Async(PersonContact personContact)
+        public System.Threading.Tasks.Task<PersonContact> PersonContactPostAsync(PersonContact personContact)
         {
-            return Add4Async(personContact, System.Threading.CancellationToken.None);
+            return PersonContactPostAsync(personContact, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<PersonContact> Add4Async(PersonContact personContact, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<PersonContact> PersonContactPostAsync(PersonContact personContact, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/PersonContact");
@@ -1436,15 +1443,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GetAll4Async()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> ValuesGetAsync()
         {
-            return GetAll4Async(System.Threading.CancellationToken.None);
+            return ValuesGetAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> GetAll4Async(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Country>> ValuesGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values");
@@ -1503,15 +1510,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task PostAsync(string value)
+        public System.Threading.Tasks.Task ValuesPostAsync(string value)
         {
-            return PostAsync(value, System.Threading.CancellationToken.None);
+            return ValuesPostAsync(value, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task PostAsync(string value, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ValuesPostAsync(string value, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values");
@@ -1569,15 +1576,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<string> Get5Async(int id)
+        public System.Threading.Tasks.Task<string> ValuesGetAsync(int id)
         {
-            return Get5Async(id, System.Threading.CancellationToken.None);
+            return ValuesGetAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<string> Get5Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<string> ValuesGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1640,15 +1647,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task PutAsync(int id, string value)
+        public System.Threading.Tasks.Task ValuesPutAsync(int id, string value)
         {
-            return PutAsync(id, value, System.Threading.CancellationToken.None);
+            return ValuesPutAsync(id, value, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task PutAsync(int id, string value, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ValuesPutAsync(int id, string value, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1710,15 +1717,15 @@ namespace DemoClient
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task Delete5Async(int id)
+        public System.Threading.Tasks.Task ValuesDeleteAsync(int id)
         {
-            return Delete5Async(id, System.Threading.CancellationToken.None);
+            return ValuesDeleteAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task Delete5Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ValuesDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -1954,7 +1961,7 @@ namespace DemoClient
         public Country CountryCodeNavigation { get; set; }
 
         [Newtonsoft.Json.JsonProperty("greeting", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Greeting Greeting { get; set; }
+        public Country Greeting { get; set; }
 
         [Newtonsoft.Json.JsonProperty("personContact", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PersonContact> PersonContact { get; set; }
